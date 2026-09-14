@@ -1,15 +1,66 @@
 {
-  "lanes": [
-    "backlog",
-    "in_progress",
-    "code_review",
-    "code_simplifier",
-    "auto_commit",
-    "done",
-    "blocked"
-  ],
-  "initial": "backlog",
-  "transitions": [],
+  "project": "unknown",
+  "source": "trello-cards/",
+  "kanban_path": "trello-cards/kanban.json",
+  "overall_status": "completed",
+  "current_card": null,
+  "current_stage": null,
+  "progress_percent": 100,
+  "started_at": null,
+  "completed_at": "2026-09-14T13:33:57.567Z",
+  "updated_at": "2026-09-14T13:33:57.567Z",
+  "done_count": 4,
+  "blocked_count": 0,
   "total_cards": 4,
-  "total_sp": 14
+  "total_sp": 14,
+  "agile_states": {
+    "backlog": 0,
+    "in_progress": 0,
+    "code_review": 0,
+    "code_simplification": 0,
+    "auto_commit": 0,
+    "done": 4
+  },
+  "cards": {
+    "TC-001": {
+      "status": "done",
+      "sp": 3,
+      "stage_history": [
+        {
+          "stage": "done",
+          "at": "2026-09-14T13:33:57.566Z"
+        }
+      ]
+    },
+    "TC-002": {
+      "status": "done",
+      "sp": 4,
+      "stage_history": [
+        {
+          "stage": "done",
+          "at": "2026-09-14T13:33:57.567Z"
+        }
+      ]
+    },
+    "TC-003": {
+      "status": "done",
+      "sp": 4,
+      "stage_history": [
+        {
+          "stage": "done",
+          "at": "2026-09-14T13:33:57.567Z"
+        }
+      ]
+    },
+    "TC-004": {
+      "status": "done",
+      "sp": 3,
+      "stage_history": [
+        {
+          "stage": "done",
+          "at": "2026-09-14T13:33:57.567Z"
+        }
+      ]
+    }
+  }
 }

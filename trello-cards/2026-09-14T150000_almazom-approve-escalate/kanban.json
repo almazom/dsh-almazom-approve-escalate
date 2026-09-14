@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "board": "almazom-approve-escalate",
+    "created": "2026-09-14T15:05:00+03:00",
+    "plan": "2026-09-14_dsh-almazom-approve-escalate-plugin.md",
+    "mode": "medium",
+    "total_sp": 14,
+    "source_session": "2026-09-14 operator order: plugin approve+escalate button, isolated, portable, almazom name, publish",
+    "started_at": "2026-09-14T11:36:39Z",
+    "notified_start": true
+  },
+  "cards": {
+    "TC-001": {
+      "title": "Plugin skeleton: manifest contract, host face + config WebRoute, build",
+      "status": "in_progress",
+      "sp": 3,
+      "deps": [],
+      "artifact_paths": [
+        "package.json",
+        "cordis.patch.yml",
+        "lib/index.js",
+        "lib/client.js",
+        "tests/manifest.test.mjs"
+      ]
+    },
+    "TC-002": {
+      "title": "Approve & escalate panel in conversation.approval.detail slot",
+      "status": "in_progress",
+      "sp": 4,
+      "deps": [
+        "TC-001"
+      ],
+      "artifact_paths": [
+        "src/client/panel.ts",
+        "src/client/styles.ts"
+      ]
+    },
+    "TC-003": {
+      "title": "Isolated-stand E2E: real approval flow, button click, policy switch, GIF",
+      "status": "in_progress",
+      "sp": 4,
+      "deps": [
+        "TC-002"
+      ],
+      "e2e": {
+        "url": "http://127.0.0.1:39781/",
+        "flows": [
+          {
+            "name": "approval-card",
+            "path": "/",
+            "expect": "#root"
+          }
+        ]
+      }
+    },
+    "TC-004": {
+      "title": "Publish: GitHub repo + dsh-plugin topic + catalog PR + Show Your Plugins",
+      "status": "backlog",
+      "sp": 3,
+      "deps": [
+        "TC-003"
+      ],
+      "artifact_paths": [
+        "README.md",
+        "docs/install.md"
+      ]
+    }
+  },
+  "transition_log": [
+    {
+      "card": "TC-001",
+      "from": "backlog",
+      "to": "in_progress",
+      "at": "2026-09-14T11:36:39Z",
+      "actor": "kanban-update"
+    },
+    {
+      "card": "TC-002",
+      "from": "backlog",
+      "to": "in_progress",
+      "at": "2026-09-14T11:36:57Z",
+      "actor": "kanban-update"
+    },
+    {
+      "card": "TC-001",
+      "from": "in_progress",
+      "to": "in_progress",
+      "at": "2026-09-14T11:37:11Z",
+      "actor": "kanban-update"
+    },
+    {
+      "card": "TC-003",
+      "from": "backlog",
+      "to": "in_progress",
+      "at": "2026-09-14T12:47:12Z",
+      "actor": "kanban-update"
+    }
+  ],
+  "status_counts": {
+    "backlog": 1,
+    "in_progress": 3,
+    "review": 0,
+    "simplification": 0,
+    "auto_commit": 0,
+    "done": 0,
+    "blocked": 0
+  }
+}

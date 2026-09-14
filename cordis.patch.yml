@@ -1,0 +1,6 @@
+- insert:
+    - id: almazom-approve-escalate
+      name: 'dsh-almazom-approve-escalate'
+      config:
+        preset: 'workspace-write'
+        label: 'Approve & escalate'

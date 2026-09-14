@@ -1,0 +1,3 @@
+node_modules/
+trello-cards/**/e2e/*.png
+trello-cards/**/e2e/results.json

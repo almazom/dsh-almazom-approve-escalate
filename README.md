@@ -39,6 +39,13 @@ Override the preset or the label in the profile patch layer (`~/.dsh/profiles/we
         label: 'Approve & escalate'
 ```
 
+
+## Updates & versioning
+
+- The plugin is versioned in `package.json` (semver) and deployed as git commits in this repo; the profile mounts it via `link:` so new code is served live at a fresh client-bundle rev.
+- **Reload rule:** already-open app pages keep the module graph they booted with. After any deploy, hard-refresh the DSH tab (PWA on iPhone: close from multitask, reopen). The deploying agent must announce every client-affecting change via Delta Chat ("обнови вкладки DSH").
+- Rollback: `dsh plugin --profile web remove dsh-almazom-approve-escalate` or delete the patch row — features disappear without touching the host.
+
 ## Rollback
 
 ```sh

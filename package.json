@@ -1,7 +1,7 @@
 {
   "name": "dsh-almazom-approve-escalate",
-  "description": "DSH web plugin: an 'Approve & escalate' action on the approval card \u2014 one click approves the pending request and switches the live session to a permission preset (default workspace-write). Isolated plugin, no core changes, no telemetry.",
-  "version": "0.1.0",
+  "description": "DSH web plugin: 'Approve & full access' on the approval card and a /yolo composer command — one click switches the live session to the danger-full-access preset and answers the pending approval. Isolated plugin, no core changes, no telemetry.",
+  "version": "0.2.0",
   "license": "MIT",
   "type": "module",
   "main": "lib/index.js",

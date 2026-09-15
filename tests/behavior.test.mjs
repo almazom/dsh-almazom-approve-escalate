@@ -84,3 +84,27 @@ test('compactArgs flattens and truncates raw args', () => {
   assert.ok(truncated.endsWith('…'))
   assert.equal(compactArgs(''), undefined)
 })
+
+
+test('YOLO order: fallback config is full access, never a weaker preset', () => {
+  loadBundle()
+  assert.deepEqual(exportsObject.__test.DEFAULT_CONFIG, { preset: 'danger-full-access', label: 'Approve & full access' })
+})
+
+test('apply registers the /yolo command contribution that escalates to full access', async () => {
+  loadBundle()
+  const seenLines = []
+  const registered = []
+  const commandUi = { register: (c) => { registered.push(c); return () => {} } }
+  const { ctx } = fakeCtx(async (line) => { seenLines.push(line); return { value: { matched: true } } })
+  ctx.slots = { inject: () => () => {}, register: () => ({}) }
+  ctx.inject = (services, fn) => fn({ get: (k) => (k === 'commandUi' ? commandUi : undefined), effect: (f) => f() })
+  const dispose = exportsObject.apply(ctx)
+  assert.equal(registered.length, 1, 'one contribution registered')
+  const yolo = registered[0]
+  assert.equal(yolo.name, 'yolo')
+  assert.equal(yolo.ui.kind, 'action')
+  await yolo.ui.run({ sessionId: 'sess-1' })
+  assert.deepEqual(seenLines, ['/permission danger-full-access'])
+  assert.equal(typeof dispose, 'function')
+})
